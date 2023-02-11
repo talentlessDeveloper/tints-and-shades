@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .export-type span {
+    @apply block;
+  }
+
+  .preTailwind span {
+    @apply ml-8 mt-1;
+  }
+}
