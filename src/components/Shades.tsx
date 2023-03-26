@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useTinyColors } from "../utils/tinyColors";
 import { GetColorName } from "hex-color-to-color-name";
@@ -16,6 +16,13 @@ const Shades = () => {
 
   const hexColor = tinycolor(color).toHexString();
   const colorName = GetColorName(hexColor);
+
+  useEffect(() => {
+    const modal = document.querySelector(".modal-ref") as HTMLElement;
+    if (modal && exportModal) {
+      modal.focus();
+    }
+  }, [exportModal]);
 
   return (
     <section>
