@@ -41,8 +41,8 @@ const ExportModal = ({
   let tintsAndShades = colorType === "tints" ? tints : shades;
 
   return (
-    <div className='bg-gray-200/30 backdrop-blur w-full h-screen fixed inset-0 flex items-center justify-center '>
-      <div className='font-mono bg-gray-900 text-gray-50 w-11/12 max-w-2xl relative z-10 rounded-md overflow-hidden pb-6'>
+    <div className=' bg-gray-200/30 backdrop-blur w-full h-screen fixed inset-0 flex  items-center justify-center'>
+      <div className=' font-mono bg-gray-900 text-gray-50 w-11/12 max-w-2xl relative z-10 rounded-md overflow-hidden pb-6'>
         <ExportModalBtns
           setType={setType}
           type={type}
@@ -51,7 +51,7 @@ const ExportModal = ({
         <div className='px-5 mt-8 export-type '>
           <div className='flex gap-x-4 font-mono mb-4'>
             <button
-              className={`px-4 pb-1 transition-all duration-300  ${
+              className={`px-4 pb-1 transition-all duration-300 modal-ref focus:outline-dashed focus:outline-2 focus:outline-white focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-white  ${
                 colorType === "tints"
                   ? "text-gray-50 border-b border-solid border-gray-300 shadow-md"
                   : "text-gray-500"
