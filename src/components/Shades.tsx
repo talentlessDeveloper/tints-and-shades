@@ -35,6 +35,7 @@ const Shades = () => {
             <button
               className='font-mono'
               onClick={() => setExportModal((m) => !m)}
+              aria-label='open modal'
             >
               Export
             </button>
