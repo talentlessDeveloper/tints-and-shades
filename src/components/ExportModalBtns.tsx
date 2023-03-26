@@ -15,8 +15,12 @@ const ExportModalBtns = ({
     <div className='flex justify-between items-center bg-gray-700 py-3 px-5 font-serif'>
       <div className='flex gap-x-4 text-gray-500 '>
         <button
-          className={type === "tailwind" ? "text-gray-50" : ""}
-          onClick={() => setType("tailwind")}
+          className={`${
+            type === "tailwind" ? "text-gray-50" : ""
+          } modal-ref focus:outline-dashed focus:outline-2 focus:outline-white focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-white`}
+          onClick={() => {
+            setType("tailwind");
+          }}
         >
           Tailwind
         </button>
