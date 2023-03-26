@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { copyTextToClipboard } from "../utils/copyToClipboard";
 import ExportModalBtns from "./ExportModalBtns";
 import ExportType from "./ExportType";
@@ -39,6 +39,32 @@ const ExportModal = ({
   };
 
   let tintsAndShades = colorType === "tints" ? tints : shades;
+
+  useEffect(() => {
+    let firstEl = document.querySelector(".modal-ref") as HTMLElement;
+    let lastEl = document.querySelector(".copy-btn") as HTMLElement;
+
+    function trapModal(e: KeyboardEvent) {
+      let tabPressed = e.key === "Tab" || e.keyCode === 9;
+      if (!tabPressed) return;
+      if (!firstEl || !lastEl) return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          lastEl.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          firstEl.focus();
+          e.preventDefault();
+        }
+      }
+    }
+
+    document.addEventListener("keydown", trapModal);
+    return () => document.removeEventListener("keydown", trapModal);
+  }, []);
 
   return (
     <div className=' bg-gray-200/30 backdrop-blur w-full h-screen fixed inset-0 flex  items-center justify-center'>
