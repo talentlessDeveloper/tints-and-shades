@@ -51,7 +51,7 @@ const ExportModal = ({
         <div className='px-5 mt-8 export-type '>
           <div className='flex gap-x-4 font-mono mb-4'>
             <button
-              className={`px-4 pb-1 transition-all duration-300 modal-ref focus:outline-dashed focus:outline-2 focus:outline-white focus-visible:outline-dashed focus-visible:outline-2 focus-visible:outline-white  ${
+              className={`px-4 pb-1  ${
                 colorType === "tints"
                   ? "text-gray-50 border-b border-solid border-gray-300 shadow-md"
                   : "text-gray-500"
@@ -78,7 +78,7 @@ const ExportModal = ({
               colorName={colorName}
               preRef={preRef}
             />
-            <button onClick={handleCopy}>
+            <button aria-label='copy' className='copy-btn' onClick={handleCopy}>
               {!isCopied ? (
                 <Icon />
               ) : (
